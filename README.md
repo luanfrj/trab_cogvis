@@ -44,3 +44,21 @@ A saída será como:
 	0.1003 - "n02119022 red fox, Vulpes vulpes"
 	0.0715 - "n02127052 lynx, catamount"
 
+### Preparando a base de dados
+Antes de preparar as imagens que serão usadas, para o tal foi criado um programa (convert_data.c) que faz isso
+sendo necessário apenas passar como parâmetro o caminho com o diretório das imagens e o de destino.
+
+Após isso é preciso executar o script create_lmdb.sh:
+
+	sh create_lmdb.sh
+	
+Esse script converte as imagens para uma base de dados LMDB compatível com o CAFFE. São geradas as bases de treino e validação.
+
+Depois deve-se executar o script compute_mean.sh para computar a média das imagens.
+
+### Treinando a rede
+Executa-se o scrip treinar.sh, para treinar a rede:
+
+	sh treinar.sh
+	
+Os arquivos na pasta model devem ser ajustados para se obter a resposta desejada.

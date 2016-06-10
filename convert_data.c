@@ -29,6 +29,7 @@ int main(int argc, char **argv)
 		return 0;
 	}
 	
+	printf("Copiando e redimensionando imagens.\n");
 	for(int i = 0; i < num_classes; i++)
 	{
 		n = sprintf(filename,"%s/%05d/GT-%05d.csv",dir_base,i,i);
@@ -59,6 +60,8 @@ int main(int argc, char **argv)
 		fclose(f);
 	}
 	
+	printf("Fim do processo.\n");
+
 	fclose(train);
 	fclose(val);
 
