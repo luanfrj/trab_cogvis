@@ -381,10 +381,53 @@ layer {
     }
   }
 }
+#novos layers adicionados
+layer {
+  name: "relu8"
+  type: "ReLU"
+  bottom: "fc8"
+  top: "fc8"
+}
+layer {
+  name: "drop8"
+  type: "Dropout"
+  bottom: "fc8"
+  top: "fc8"
+  dropout_param {
+    dropout_ratio: 0.5
+  }
+}
+layer {
+  name: "fc9"
+  type: "InnerProduct"
+  bottom: "fc8"
+  top: "fc9"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 43
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+
+#layers modificados
 layer {
   name: "accuracy"
   type: "Accuracy"
-  bottom: "fc8"
+  bottom: "fc9"
   bottom: "label"
   top: "accuracy"
   include {
@@ -394,7 +437,7 @@ layer {
 layer {
   name: "loss"
   type: "SoftmaxWithLoss"
-  bottom: "fc8"
+  bottom: "fc9"
   bottom: "label"
   top: "loss"
 }

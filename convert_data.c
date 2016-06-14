@@ -35,12 +35,12 @@ int main(int argc, char **argv)
 		n = sprintf(filename,"%s/%05d/GT-%05d.csv",dir_base,i,i);
 		FILE *f = fopen(filename, "r");
 		line = 0;
+		fscanf(f,"%s\n",linha);
 		while (!feof(f))
 		{
-			fscanf(f,"%s",linha);
 			if(line>0)
 			{
-				fscanf(f,"%s",linha);
+				fscanf(f,"%s\n",linha);
 				image_name_base = strtok(linha,".");
 				sprintf(input_image,"%s/%05d/%s.ppm",dir_base,i,image_name_base);
 				sprintf(output_image,"%s/%05d_%s.jpg",output_dir,i,image_name_base);
