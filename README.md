@@ -1,24 +1,24 @@
 Trabalho de Cognição Visual 2016/1
 ==================================
 
-### Dependências
+## Dependências
 Para instalar as dependências da CAFFE para o Ubuntu 12.04 é preciso executar:
 	
 	sudo sh install_deps.sh
 
-### Caffe
+## Caffe
 A caffe pode ser obtida com:
 	
 	clone https://github.com/BVLC/caffe.git
 
 Mais instruções sobre a compilação em: http://caffe.berkeleyvision.org/installation.html#compilation
 
-### Dataset
+## Dataset
 O dataset de placas foi obtido de:
 
 http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset
 
-### Testando o caffe para classificação
+## Testando o caffe para classificação
 Para testar um exemplo do caffe com uma rede pré treinada. Primeiro é preciso instalar o yaml:
 
 	sudo apt-get install python-yaml
@@ -43,18 +43,13 @@ A saída será como:
 	0.1235 - "n02124075 Egyptian cat"
 	0.1003 - "n02119022 red fox, Vulpes vulpes"
 	0.0715 - "n02127052 lynx, catamount"
+# A rede utilizada
+O modelo pré-treinado utiizado foi o nin-imagenet.
 
-### Preparando a base de dados
+## Preparando a base de dados
 Antes de preparar as imagens que serão usadas, para o tal foi criado um programa (convert_data.c) que faz isso
 sendo necessário apenas passar como parâmetro o caminho com o diretório das imagens e o de destino.
 
-Após isso é preciso executar o script create_lmdb.sh:
-
-	sh create_lmdb.sh
-	
-Esse script converte as imagens para uma base de dados LMDB compatível com o CAFFE. São geradas as bases de treino e validação.
-
-Depois deve-se executar o script compute_mean.sh para computar a média das imagens.
 
 ### Treinando a rede
 Executa-se o scrip treinar.sh, para treinar a rede:
