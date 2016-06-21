@@ -49,7 +49,7 @@ int main(int argc, char **argv)
 
 				// 90% para treino e 10% para validação
 				if ((rand() % 100) <= 90)
-					fprintf(train,"%05d_%s.jpg %d\n",i,image_name_base,i);
+					fprintf(train,"data_training/%05d_%s.jpg %d\n",i,image_name_base,i);
 				else
 					fprintf(val,"%05d_%s.jpg %d\n",i,image_name_base,i);
 
